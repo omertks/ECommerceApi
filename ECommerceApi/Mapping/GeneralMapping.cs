@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using ECommerceApi.Dto.Dtos.AddressDtos;
 using ECommerceApi.Dto.Dtos.CategoryDtos;
 using ECommerceApi.Dto.Dtos.ProductDtos;
 using ECommerceApi.Dto.Dtos.StoreDtos;
+using ECommerceApi.Dto.Dtos.UserDtos;
 using ECommerceApi.Entity.Entities;
 
 namespace ECommerceApi.Mapping
@@ -25,6 +27,13 @@ namespace ECommerceApi.Mapping
 
             CreateMap<CreateStoreDto, Store>().ReverseMap();
             CreateMap<ResultStoreDto, Store>().ReverseMap();
+
+
+            CreateMap<CreateAddressDto, Address>().ReverseMap();
+            CreateMap<ResultAddressDto, Address>().ReverseMap();
+
+            CreateMap<CreateUserDto, User>().ReverseMap();
+            CreateMap<ResultUserDto, User>().ReverseMap();
 
         }
     }

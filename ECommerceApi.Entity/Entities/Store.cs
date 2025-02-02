@@ -7,7 +7,12 @@ namespace ECommerceApi.Entity.Entities
 {
     public class Store : BaseEntity
     {
-        // Bir tane Satıcı class koy
+        // Login işlemi icin
+
+        public string UserName { get; set; } 
+        public string Password { get; set; } 
+
+
 
         public string Name { get; set; }
         public float NumberOfStar { get; set; }
