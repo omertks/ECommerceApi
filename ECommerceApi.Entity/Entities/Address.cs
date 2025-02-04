@@ -17,6 +17,6 @@ namespace ECommerceApi.Entity.Entities
 
 
         public ObjectId OwnerId { get; set; }
-        public User Owner { get; set; }
+        public virtual User Owner { get; set; }
     }
 }

@@ -9,8 +9,8 @@ namespace ECommerceApi.Entity.Entities
     {
         // Login işlemi icin
 
-        public string UserName { get; set; } 
-        public string Password { get; set; } 
+        //public string UserName { get; set; } 
+        //public string Password { get; set; } 
 
 
 
@@ -22,9 +22,9 @@ namespace ECommerceApi.Entity.Entities
 
 
 
-        public List<Order> Orders { get; set; }
-        public List<Product> Products { get; set; }
-        public List<User> Followers { get; set; }
+        public virtual List<Order> Orders { get; set; }
+        public virtual List<Product> Products { get; set; }
+        public virtual List<User> Followers { get; set; }
 
     }
 }

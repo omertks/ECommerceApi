@@ -19,6 +19,7 @@ namespace ECommerceApi.Mapping
             CreateMap<CreateProductDto, Product>().ReverseMap();
 
 
+            CreateMap<ResultCategoryForProductDto, Category>().ReverseMap();
             CreateMap<ResultCategoryDto, Category>().ReverseMap();
                 //.ForMember(dto => dto.Id, opt => opt.MapFrom(src => src.Id.ToString())); // ObjectId'yi string'e otomatik dönüştürme
             CreateMap<UpdateCategoryDto, Category>().ReverseMap();
@@ -27,6 +28,7 @@ namespace ECommerceApi.Mapping
 
             CreateMap<CreateStoreDto, Store>().ReverseMap();
             CreateMap<ResultStoreDto, Store>().ReverseMap();
+            CreateMap<ResultStoreForProductDto, Store>().ReverseMap();
 
 
             CreateMap<CreateAddressDto, Address>().ReverseMap();

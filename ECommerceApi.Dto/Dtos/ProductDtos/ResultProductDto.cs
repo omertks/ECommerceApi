@@ -1,4 +1,5 @@
-﻿using ECommerceApi.Dto.Dtos.StoreDtos;
+﻿using ECommerceApi.Dto.Dtos.CategoryDtos;
+using ECommerceApi.Dto.Dtos.StoreDtos;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ namespace ECommerceApi.Dto.Dtos.ProductDtos
         public int? StockCount { get; set; }
         public bool IsActive { get; set; }
 
-        public ResultStoreDto Store { get; set; }
+        public ResultStoreForProductDto Store { get; set; }
 
+        public List<ResultCategoryForProductDto> Categories { get; set; }
     }
 }

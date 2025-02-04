@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.EntityFrameworkCore.Diagnostics;
 using MongoDB.EntityFrameworkCore.Extensions;
 
 namespace ECommerceApi.Contexts
@@ -27,7 +28,14 @@ namespace ECommerceApi.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseMongoDB("mongodb://localhost:27017", "e_commerce_api_db");
+            optionsBuilder
+                //.UseLazyLoadingProxies() // İlişkili nesnelerin gerektiğinde yüklenmesi için
+                .UseMongoDB("mongodb://localhost:27017", "e_commerce_api_db");
+            
+
+            // Burası ne yav
+            Database.AutoTransactionBehavior = AutoTransactionBehavior.Never;
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,7 +44,7 @@ namespace ECommerceApi.Contexts
 
 
             #region Collection And Id Config
-            
+
             // Id alanlarının konfigurasyonu
 
             modelBuilder.Entity<Address>()
@@ -109,14 +117,14 @@ namespace ECommerceApi.Contexts
             // Product - Pictures   OneToMany
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Pictures)
-                .WithOne(p =>  p.Product)
+                .WithOne(p => p.Product)
                 .HasForeignKey(p => p.ProductId);
 
             // Product - Category ManyToMany
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Categories)
                 .WithMany(c => c.Products)
-                .UsingEntity(j => j.ToCollection("product_categories")); 
+                .UsingEntity(j => j.ToCollection("product_categories"));
 
 
             // Store:
@@ -139,7 +147,7 @@ namespace ECommerceApi.Contexts
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Orders)
                 .WithOne(o => o.Owner)
-                .HasForeignKey(o =>  o.OwnerId);
+                .HasForeignKey(o => o.OwnerId);
 
             // User - Address
             modelBuilder.Entity<User>()
@@ -165,7 +173,7 @@ namespace ECommerceApi.Contexts
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.OrdersItems)
                 .WithOne(oi => oi.Order)
-                .HasForeignKey (oi => oi.OrderId);
+                .HasForeignKey(oi => oi.OrderId);
 
             #endregion
         }

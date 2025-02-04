@@ -20,4 +20,8 @@
     <ProjectReference Include="..\ECommerceApi.Entity\ECommerceApi.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Images\Products\" />
+  </ItemGroup>
+
 </Project>

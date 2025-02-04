@@ -16,11 +16,11 @@ namespace ECommerceApi.Entity.Entities
 
 
         public ObjectId StoreId { get; set; }
-        public Store? Store { get; set; }
+        public virtual Store? Store { get; set; }
 
         public ObjectId OwnerId { get; set; }
-        public User? Owner { get; set; }
+        public virtual User? Owner { get; set; }
 
-        public List<OrdersItems>? OrdersItems { get; set; }
+        public virtual List<OrdersItems>? OrdersItems { get; set; }
     }
 }

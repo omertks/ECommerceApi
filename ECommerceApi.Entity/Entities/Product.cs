@@ -16,13 +16,13 @@ namespace ECommerceApi.Entity.Entities
         public bool IsActive { get; set; } // default true yap
 
 
-        public List<Category> Categories { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<Picture> Pictures { get; set; }
+        public virtual List<Category> Categories { get; set; }
+        public virtual List<Comment> Comments { get; set; }
+        public virtual List<Picture> Pictures { get; set; }
 
 
         public ObjectId StoreId { get; set; }
-        public Store? Store { get; set; }
+        public virtual Store? Store { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ECommerceApi.Bussiness.Abstract;
+using ECommerceApi.Dto.Dtos.CategoryDtos;
 using ECommerceApi.Dto.Dtos.ProductDtos;
 using ECommerceApi.Dto.Dtos.StoreDtos;
 using ECommerceApi.Entity.Entities;
@@ -16,24 +17,31 @@ namespace ECommerceApi.Controllers
     {
         IProductService _productService;
 
+        ICategoryService _categoryService;
+        IStoreService _storeService;
+
         private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService, IMapper mapper)
+        public ProductController(IProductService productService, IStoreService storeService, IMapper mapper, ICategoryService categoryService)
         {
             _productService = productService;
             _mapper = mapper;
+            _storeService = storeService;
+            _categoryService = categoryService;
         }
 
+
+        // Buraya Bak
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
-            var values = await _productService.TGetListAsync();
-
-            var productList = _mapper.Map<List<ResultProductDto>>(values);
+            var products = await _productService.TGetListAsync();
 
             // Store bilgileri null geliyor id hariç
 
-            return Ok(productList);
+            //List<ResultProductDto> result = _mapper.Map<List<ResultProductDto>>(products);            
+
+            return Ok(products);
         }
 
         [HttpGet("{idString}", Name = "GetProductById")]
@@ -105,14 +113,35 @@ namespace ECommerceApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
         {
-            await _productService.TCreateAsync(_mapper.Map<Product>(createProductDto));
+            if (ObjectId.TryParse(createProductDto.StoreId, out ObjectId objectId)) // object Id Kontrol
+            {
 
-            return Created(); // status 201
+                var product = _mapper.Map<Product>(createProductDto);
+
+                product.Categories = new List<Category>();
+
+                foreach (string categoryId in createProductDto.CategoriesIds)
+                {
+                    if (ObjectId.TryParse(categoryId, out ObjectId cId))
+                    {
+                        var c = await _categoryService.TGetByIdAsync(cId);
+                        product.Categories.Add(c);
+                    }
+                    else { return BadRequest("Kategoriler Tanımsız"); }
+                }
+
+                await _productService.TCreateAsync(product);
+
+                return Created(); // status 201
+            }
+            else { return BadRequest("Store Tanımsız"); }
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(string idString, UpdateProductDto updateProductDto)
         {
+            // Bu Kısmı İncele
+
             var dbProduct = await (_productService.TGetByIdAsync(ObjectId.Parse(idString)));
 
             dbProduct.Name = updateProductDto.Name;

@@ -20,8 +20,8 @@ namespace ECommerceApi.Entity.Entities
 
 
         
-        public List<Address> Addresses { get; set; }
-        public List<Store> FollowingStores { get; set; }
-        public List<Order> Orders { get; set; }
+        public virtual List<Address> Addresses { get; set; }
+        public virtual List<Store> FollowingStores { get; set; }
+        public virtual List<Order> Orders { get; set; }
     }
 }

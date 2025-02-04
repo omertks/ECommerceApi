@@ -16,10 +16,10 @@ namespace ECommerceApi.Entity.Entities
 
 
         public ObjectId UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         public ObjectId ProductId { get; set; }
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
 
     }
