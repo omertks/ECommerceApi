@@ -15,7 +15,7 @@ namespace ECommerceApi.Dto.Dtos.ProductDtos
         public int? StockCount { get; set; }
 
         
-        //public List<string> PicturesLinks { get; set; }
+        public List<string> PicturesLinks { get; set; }
         public string StoreId { get; set; } // buradanda tam emin değilim
         public List<string> CategoriesIds { get; set; } // categories
     }

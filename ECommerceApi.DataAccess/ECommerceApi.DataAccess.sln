@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApi.DataAccess", "ECommerceApi.DataAccess.csproj", "{DE746429-0432-82C2-E94A-4FF34F1E945F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE746429-0432-82C2-E94A-4FF34F1E945F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE746429-0432-82C2-E94A-4FF34F1E945F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE746429-0432-82C2-E94A-4FF34F1E945F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE746429-0432-82C2-E94A-4FF34F1E945F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AC6C9FC-29BF-4CCF-9864-BA5F6B6CF2DC}
+	EndGlobalSection
+EndGlobal

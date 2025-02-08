@@ -25,7 +25,7 @@ namespace ECommerceApi
             {
                 opt.AddPolicy(name: "Test",policy =>
                 {
-                    policy.WithOrigins("*") // izin verilen kaynaklarýn listesi. þu anda cors devre dýþý
+                    policy.WithOrigins("*") // izin verilen kaynaklarï¿½n listesi. ï¿½u anda cors devre dï¿½ï¿½ï¿½
                     .AllowAnyHeader()
                     .AllowAnyMethod(); 
                 });
@@ -40,9 +40,9 @@ namespace ECommerceApi
             builder.Services.AddSwaggerGen();
 
 
-            ServiceExtension.AddServiceExtension(builder.Services); // Servislerin Tanýmlanmasý
+            ServiceExtension.AddServiceExtension(builder.Services); // Servislerin Tanï¿½mlanmasï¿½
 
-            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); // Mapper Tanýmlama
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); // Mapper Tanï¿½mlama
 
 
             ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
@@ -53,7 +53,7 @@ namespace ECommerceApi
 
             var context = serviceProvider.GetRequiredService<EDbContext>();
 
-            Console.WriteLine(context.Database.EnsureCreated() ? "Database Created" : "Database Available"); // Db nin oluþturulmasý
+            Console.WriteLine(context.Database.EnsureCreated() ? "Database Created" : "Database Available"); // Db nin oluï¿½turulmasï¿½
 
 
             // Configure the HTTP request pipeline.

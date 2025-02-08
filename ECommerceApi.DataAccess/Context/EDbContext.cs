@@ -107,7 +107,6 @@ namespace ECommerceApi.Contexts
             #region Relationships
 
             // Products:
-
             // Product - Comments   OneToMany
             modelBuilder.Entity<Product>()
                 .HasMany(x => x.Comments)
@@ -128,7 +127,6 @@ namespace ECommerceApi.Contexts
 
 
             // Store:
-
             // Store - Products    OneToMany
             modelBuilder.Entity<Store>()
                 .HasMany(s => s.Products)
@@ -142,7 +140,6 @@ namespace ECommerceApi.Contexts
                 .UsingEntity(j => j.ToCollection("store_follower"));
 
             // User:
-
             // User - Order
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Orders)
@@ -156,7 +153,6 @@ namespace ECommerceApi.Contexts
                 .HasForeignKey(a => a.OwnerId);
 
             // Order:
-
             // Order - Store
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Store)

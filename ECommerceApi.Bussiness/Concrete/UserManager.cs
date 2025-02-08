@@ -14,5 +14,7 @@ namespace ECommerceApi.Bussiness.Concrete
         public UserManager(IGenericRepository<User> genericRepository) : base(genericRepository)
         {
         }
+
+        
     }
 }

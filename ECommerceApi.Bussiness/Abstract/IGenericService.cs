@@ -22,7 +22,6 @@ namespace ECommerceApi.Bussiness.Abstract
 
         Task<T> TGetByIdAsync(ObjectId id);
 
-
         Task<List<T>> TGetFilteredListAsync(Expression<Func<T, bool>> expression);
     }
 }

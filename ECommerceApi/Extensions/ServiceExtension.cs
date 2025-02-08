@@ -37,10 +37,6 @@ namespace ECommerceApi.Extensions
             
             Services.AddScoped<IUserRepository, EFUserDal>();
             Services.AddScoped<IUserService, UserManager>();
-            
-            //Services.AddScoped<IRepository, EFDal>();
-            //Services.AddScoped<IService, Manager>();
-
 
             // Generic yapıları constructurlarda kullandığım için 
             Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

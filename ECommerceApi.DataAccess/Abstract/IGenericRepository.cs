@@ -21,8 +21,6 @@ namespace ECommerceApi.DataAccess.Abstract
 
         Task<T> GetByIdAsync(ObjectId id);
 
-
         Task<List<T>> GetFilteredListAsync(Expression<Func<T,bool>> expression);
-
     }
 }
