@@ -40,7 +40,7 @@ namespace ECommerceApi.Controllers
             // Store bilgileri null geliyor id hariç
 
             //List<ResultProductDto> result = _mapper.Map<List<ResultProductDto>>(products);            
-
+            
             return Ok(products);
         }
 
